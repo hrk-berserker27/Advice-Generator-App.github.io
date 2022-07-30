@@ -1,0 +1,86 @@
+@use 'design' as d;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --height: 90%;
+}
+
+#root {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    font-family: 'Manrope', 'sans-serif';
+    background-color: map-get(d.$color-bucket, "Dark Blue");
+
+    @media (max-width: 570px) {
+        width: 100%;
+        padding: 0 1em;
+    }
+}
+
+main {
+    width: 540px;
+    border-radius: 0.7em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    background-color: map-get(d.$color-bucket, "Dark Grayish Blue");
+    padding: 3em 2em 4em 2em;
+
+    @media (max-width: 570px) {
+        width: 100%;
+        padding: 3em 1.2em;
+    }
+
+    //box-shadow: 1px 1px 5px 0px map-get(d.$color-bucket, "Dark Grayish Blue");
+
+    header {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+
+        color: map-get(d.$color-bucket, "Neon Green");
+    }
+
+    section {
+        @include d.font-size("quote");
+        font-weight: 800;
+        width: 100%;
+        padding-top: 1em;
+        color: map-get(d.$color-bucket, "Light Cyan");
+
+        img {
+            margin-top: 1.2em;
+            width: 93.5%;
+        }
+
+        @media (max-width: 570px) {
+            font-size: 23px;
+        }
+    }
+
+    footer {
+        position: absolute;
+        top: var(--height);
+        width: 4.1em;
+        height: 4em;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background-color: map-get(d.$color-bucket, "Neon Green");
+
+        img {
+            display: inline-block;
+
+            &:hover {
+                cursor: pointer;
+                filter: drop-shadow(1px 1px 1rem hsl(150, 100%, 66%)) drop-shadow(1px 1px 1rem map-get(d.$color-bucket, "Neon Green")) drop-shadow(1px 1px 1rem map-get(d.$color-bucket, "Neon Green")) drop-shadow(1px 1px 1rem map-get(d.$color-bucket, "Neon Green"));
+            }
+        }
+    }
+}
